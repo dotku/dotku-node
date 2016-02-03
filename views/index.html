@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>DotKu Node</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/lib/dotku/dist/css/general-cn.css" rel="stylesheet"/>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/showdown/dist/showdown.min.js"></script>
+    <script src="//cdn.jsdelivr.net/sockjs/1.0.3/sockjs.min.js"></script>
+    <script src="/lib/requirejs/require.js"></script>
+    <!--script src="/lib/sockjs/sockjs.js"></script-->
+    <script src="/lib/reload/reload.js"></script>
+    
+  </head>
+  <body>
+    <div class="container">
+      <div id="readme"></div>
+    </div>
+    <footer class="footer" style="line-height: 40px; background-color: #eee; color: #999">
+      <div class="container">
+        &copy; 2016 dotku-node.coding.net hi
+      </div>
+    </footer>
+    <script>
+    $.ajax({
+      url: 'README.md',
+    }).done(function(rsp){
+      var converter = new showdown.Converter(),
+        text      = rsp,
+        html      = converter.makeHtml(text);
+        $("#readme").html(html);
+    })
+    </script>
+  </body>
+</html>
