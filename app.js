@@ -5,7 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var reload = require('reload');
+//var reload = require('reload');
 //var sockjs = require('sockjs');
 
 var routes = require('./routes/index');
@@ -62,6 +62,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
-reload(server, app, 5000, 0);
+//reload(server, app, 5000, 0);
 
 module.exports = app;
